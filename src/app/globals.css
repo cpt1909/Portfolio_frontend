@@ -90,15 +90,10 @@ header{
   .logo{
     width: 2.5rem;
     height: 2.5rem;
-  }
-  .songButton{
-    width: 1.5rem;
-    height: 1.5rem;
-    transition: 0.6s ease;
-    cursor: url('/cursors/hand.svg'), auto;
-  }
-  .songButton:hover{
-    transform: translateY(-0.25rem) scale(1.025);
+  } 
+
+  .connectionStatus{
+    font-size: 0.85rem;
   }
 }
 
@@ -182,7 +177,7 @@ header{
 
 .projectItems{
   width: 20rem;
-  padding: 1rem 2rem;
+  padding: 2rem 2rem;
   cursor: url('/cursors/hand.svg'), auto;
   border: 1px solid #222;
   box-shadow: 0 4px 6px rgba(146, 146, 146, 0.1);

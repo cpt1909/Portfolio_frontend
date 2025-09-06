@@ -13,7 +13,6 @@ export default function Home() {
   const [projectData, setProjectData] = useState(null);
   const [skillData, setSkillData] = useState(null);
   const [loading, setLoading] = useState(true);
-  const [songStatus, setSongStatus] = useState(false);
 
   async function fetchData(){
     try{
@@ -42,30 +41,9 @@ export default function Home() {
 
       <div className="main">
 
-      <audio id="audioPlayer" loop>
-        <source src="song.mp3" type="audio/mpeg" />
-      </audio>
-
         <header>
           <img src="cpt-logo.png" className="logo"></img>
-          <img
-            src={
-              songStatus ? 'music.png' : 'no-music.png'
-              }
-            onClick={()=>{
-              const audioPlayer = document.getElementById("audioPlayer");
-              if (audioPlayer.paused) {
-                audioPlayer.volume = 0.1;
-                setSongStatus(true);
-                audioPlayer.play();
-              } else {
-                audioPlayer.pause();
-                audioPlayer.currentTime = 0;
-                setSongStatus(false);
-              }
-            }}
-            className="songButton"
-          ></img>
+          <p className="connectionStatus">{loading ? "🟡 Connecting ..." : "🟢 Connected"}</p>
         </header>
         
         <div className="titleBar">
@@ -106,7 +84,7 @@ export default function Home() {
           <div className="projects">
             {projectData && projectData.map((item, index) => (
                 <div className="projectItems" key={index} onClick={() => {window.open(item.url, '_blank');}}>
-                  <p className="subheading">{item.title}</p>
+                  <p className="subheading"><strong>{item.title}</strong></p>
                   <p>{item.description}</p>
                 </div>
             ))}
