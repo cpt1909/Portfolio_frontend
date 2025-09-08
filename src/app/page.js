@@ -135,7 +135,10 @@ export default function Home() {
         <section id="contact">
           <p className="heading gradient">CONNECT WITH ME</p>
           <div className="contact">
-            <p>Post your thoughts @ <strong>cpthaarakenth@gmail.com</strong></p>
+            <p>Post your thoughts @ <strong className="email" onClick={() => {
+              navigator.clipboard.writeText("cpthaarakenth@gmail.com")
+              alert("Email ID copied to clipboard !")
+              }}>cpthaarakenth@gmail.com</strong></p>
         
             <div className="socials">
               <img src="linkedin.svg" onClick={() => {window.open("https://linkedin.com/in/thaarakenthcp/", '_blank');}}></img>

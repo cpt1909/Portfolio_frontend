@@ -64,6 +64,7 @@ body{
   background-color: var(--background);
   color: var(--text);
   cursor: url('/cursors/default.svg'), auto;
+  user-select: none;
   p{
     margin: 0;
   }
@@ -218,6 +219,10 @@ header{
   flex-direction: column;
   align-items: center;
   gap: 1rem;
+}
+.email{
+  user-select: text;
+  cursor: url("/cursors/hand.svg"), auto;
 }
 
 .socials{
