@@ -16,7 +16,7 @@ export default function Home() {
 
   async function fetchData(){
     try{
-      const res = await fetch(process.env.NEXT_PUBLIC_API_URL);
+      const res = await fetch('/api/data');
       const response = await res.json();
       setEducationData(await response.education);
       setProjectData(await response.project);
