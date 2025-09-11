@@ -12,6 +12,7 @@ export default function Home() {
   const [certificationData, setCertificationData] = useState(null);
   const [projectData, setProjectData] = useState(null);
   const [skillData, setSkillData] = useState(null);
+  const [experienceData, setExperienceData] = useState(null);
   const [loading, setLoading] = useState(true);
 
   async function fetchData(){
@@ -22,6 +23,7 @@ export default function Home() {
       setProjectData(await response.project);
       setCertificationData(await response.certification);
       setSkillData(await response.skill);
+      setExperienceData(await response.experience)
       setLoading(false);
     }catch(error){
       setLoading(true);
@@ -58,19 +60,21 @@ export default function Home() {
           </GradientText>
           <ShinyText
           className="subtitle"
-          speed={3}
+          speed={2}
           text={'@cpt1909'}
           />
           <TiltedScroll items={[
                 {text: 'Home', link: 'container' },
                 {text: 'Code Chronicles' , link: 'projects'},
                 {text: 'Skills Unlocked', link: 'skills' },
+                {text: 'Professional Experience', link: 'experience' },
                 {text: 'Certified Achievements', link: 'certifications' },
                 {text: 'Academic Milestones', link: 'education' },
                 {text: 'Connect with Me :)', link: 'contact' },
                 {text: 'Home', link: 'container' },
                 {text: 'Code Chronicles' , link: 'projects'},
                 {text: 'Skills Unlocked', link: 'skills' },
+                {text: 'Professional Experience', link: 'experience' },
                 {text: 'Certified Achievements', link: 'certifications' },
                 {text: 'Academic Milestones', link: 'education' },
                 {text: 'Connect with Me :)', link: 'contact' },
@@ -100,6 +104,36 @@ export default function Home() {
             </div>
             
         </section>
+
+        <section id="experience">
+          <p className="heading gradient">PROFESSIONAL EXPERIENCE</p>
+          <div className="experience">
+            {experienceData && experienceData.map((item, index) => (
+                <div className="experienceItems" key={index} >
+                  <p className="subheading">{item.role + " - " + item.company}</p>
+                  <p style={{
+                    marginBottom: "1rem",
+                    marginTop: "0.5rem",
+                    }}>{item.duration + ", " + item.location}</p>
+                  <ul style={{
+                    margin: "0",
+                    padding: "0 0 1rem 2rem"
+                  }}>
+                    {item.description.map((desc_item, index) => (
+                      <li
+                      key={index}
+                      style={{
+                        marginTop: "1rem",
+                      }}>{desc_item}</li>
+                    ))}  
+                  </ul>
+                  <p><strong>Key Skills: </strong>{item.skills.join(", ")}</p>
+                  
+                </div>
+            ))}
+          </div>
+        </section>
+
         <div className="certificationsAndEducation">
           <section id="certifications">
             <p className="heading gradient">CERTIFIED ACHIEVEMENTS</p>

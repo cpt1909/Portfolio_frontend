@@ -25,11 +25,17 @@ export async function GET() {
       .sort({ sno: -1 })
       .toArray();
 
+    const experience = await db.collection("experience")
+      .find({}, { projection: { _id: 0, sno: 0 } })
+      .sort({ sno: -1 })
+      .toArray();
+
     return new Response(JSON.stringify({
       project: projects,
       skill: skills,
       certification: certifications,
-      education: education
+      education: education,
+      experience: experience,
     }), {
       status: 200,
       headers: { "Content-Type": "application/json" }
