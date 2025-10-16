@@ -93,6 +93,11 @@ export default function Home() {
                 </div>
             ))}
           </div>
+          <p 
+          className="view-more-text"
+          onClick={() => {
+            window.open("https://github.com/cpt1909?tab=repositories", '_blank');
+            }}> (View More) </p>
         </section>
 
         <section id="skills">
